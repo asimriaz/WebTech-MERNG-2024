@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta>
+  <title>@model.title</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+      <h1>@model.title</h1>
+    <p>Welcome to @model.title</p>
+
+    <div > 
+      @for(var i = 0; i < 3; i++){ 
+          <div class="item-@i">I be an item! @i</div> 
+      } 
+      </div>
+
+
+
+      @if(model.age === 30){
+        <p> You can Register </p>
+      }
+      else
+      {
+        <p>Sorry You can not Register</p>
+      }
+
+</body>
+</html>
