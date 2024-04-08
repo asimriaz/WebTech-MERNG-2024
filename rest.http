@@ -1,0 +1,21 @@
+POST http://localhost:5000/refresh HTTP/1.1
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ1c2VybmFtZSI6IlNtaXRoIiwicGFzc3dvcmQiOiIxMTEiLCJpYXQiOjE3MTI1NjgyNjd9.F7pxB-gUf8IEgDc8Pq5NBMMYUOpUH9nt2njPeb4cgqA"
+
+}
+
+###
+
+GET http://localhost:5000/list HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ1c2VybmFtZSI6IlNtaXRoIiwicGFzc3dvcmQiOiIxMTEiLCJpYXQiOjE3MTI1NjgyNjcsImV4cCI6MTcxMjU2ODI5N30.qvh74fp2CFDcQMf1Ws-K15Qk5S3-C9SFyrOGsoG9OlU
+###
+
+POST http://localhost:5000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Smith", 
+    "password": "111"
+}
