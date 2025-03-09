@@ -1,24 +1,40 @@
-import React, { useState, MouseEvent } from 'react'
+import { useState, MouseEvent } from 'react'
 
 
 export default function Calculator() {
     const [display, setDisplay] = useState(0)
-    const [nums, setNums] = useState<number[]>([0, 0]);
+    const [nums, setNums] = useState([0, 0]);
     const [index, setIndex] = useState(0)
     const [opr, setOpr] = useState("")
 
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
         switch ((e.target as HTMLElement).innerText) {
             case "+":
-                setOpr("+")
+            case "-":
+            case "/":
+            case "x":
+                setOpr((e.target as HTMLElement).innerText);
                 setIndex(1)
                 break;
 
             case "=":
-                nums[0] = nums[0] + nums[1];
+                nums[0] = opr === "+" 
+                            ? nums[0] + nums[1] 
+                            : opr === "-" 
+                            ? nums[0] - nums[1] 
+                            : opr === "/" 
+                            ? nums[0] / nums[1] 
+                            : nums[0] * nums[1];
                 setIndex(0)
                 setDisplay(nums[0]);
                 nums[1] = 0;
+                //setNums([0, 0])
+                break;
+
+            case "C":
+                setIndex(0)
+                setDisplay(nums[0]);
+                setNums([0, 0])
                 break;
 
             default:
@@ -51,4 +67,3 @@ export default function Calculator() {
 
     )
 }
-<p></p>
